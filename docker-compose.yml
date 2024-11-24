@@ -13,7 +13,8 @@ services:
 
       CS2_CHEATS: 1 # (0 - disable cheats, 1 - enable cheats)
       CS2_SERVER_HIBERNATE: 0 # (Put server in a low CPU state when there are no players. 0 - hibernation disabled, 1 - hibernation enabled)
-      STEAMAPPVALIDATE: 1 # (0=skip validation, 1=validate game files)
+
+      STEAMAPPVALIDATE: 0 # (0=skip validation, 1=validate game files)
 
       CS2_MAXPLAYERS: 12 # (Max players)
 

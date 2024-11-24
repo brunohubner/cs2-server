@@ -1,3 +1,8 @@
-/data/*
+/data/**/*.*
+/data/game/bin
+
 .env*
+
 !.env.example
+
+!/data/game/csgo/cfg/*_server.cfg
