@@ -27,7 +27,7 @@ services:
       # Game modes
       CS2_GAMEALIAS: "casual" # (Game type, e.g. casual, competitive, deathmatch. See https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers)
       CS2_MAPGROUP: "mg_active" # (Map pool)
-      CS2_STARTMAP: "de_mirage" # (Start map)
+      # CS2_STARTMAP: "de_mirage" # (Start map)
 
       # Bots
       CS2_BOT_DIFFICULTY: 0 # (0 - easy, 1 - normal, 2 - hard, 3 - expert)
@@ -50,8 +50,11 @@ services:
       CS2_LOG_ITEMS: 0 # Turns item logging on/off: (0=off, 1=on)
 
       # Steam Workshop
-      CS2_HOST_WORKSHOP_MAP: "" #(Steam Workshop Map ID to load on server start)   
-      CS2_HOST_WORKSHOP_COLLECTION: "" # (Steam Workshop Collection ID to download)
+      # 3369117065 = de_dust2_fps https://steamcommunity.com/sharedfiles/filedetails/?id=3369117065
+      # 2657171534 = https://steamcommunity.com/sharedfiles/filedetails/?id=2657171534
+
+      CS2_HOST_WORKSHOP_MAP: "3369117065" #(Steam Workshop Map ID to load on server start)   
+      CS2_HOST_WORKSHOP_COLLECTION: "2657171534" # (Steam Workshop Collection ID to download)
 
     volumes:
       - ./data:/home/steam/cs2-dedicated/ # Persistent data volume mount point inside container
