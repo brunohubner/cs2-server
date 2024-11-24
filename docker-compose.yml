@@ -27,7 +27,7 @@ services:
       # Game modes
       CS2_GAMEALIAS: "casual" # (Game type, e.g. casual, competitive, deathmatch. See https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers)
       CS2_MAPGROUP: "mg_active" # (Map pool)
-      # CS2_STARTMAP: "de_mirage" # (Start map)
+      CS2_STARTMAP: "de_dust2_fps" # (Start map)
 
       # Bots
       CS2_BOT_DIFFICULTY: 0 # (0 - easy, 1 - normal, 2 - hard, 3 - expert)
