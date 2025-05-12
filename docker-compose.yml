@@ -1,60 +1,42 @@
 services:
   cs2:
-
-    # https://github.com/joedwards32/CS2
-    image: joedwards32/cs2
-
+    image: joedwards32/cs2 # https://github.com/joedwards32/CS2
     container_name: cs2
+    hostname: cs2
+    restart: unless-stopped
 
     environment:
-      # Server configuration
-      SRCDS_TOKEN: $GAME_SERVER_TOKEN # Game Server Token from https://steamcommunity.com/dev/managegameservers
-      CS2_SERVERNAME: "Santhor's server" # (Set the visible name for your private server)
-
-      CS2_CHEATS: 1 # (0 - disable cheats, 1 - enable cheats)
-      CS2_SERVER_HIBERNATE: 0 # (Put server in a low CPU state when there are no players. 0 - hibernation disabled, 1 - hibernation enabled)
-
-      STEAMAPPVALIDATE: 0 # (0=skip validation, 1=validate game files)
-
-      CS2_MAXPLAYERS: 12 # (Max players)
-
-      CS2_IP=: ""
-      CS2_PORT: $CS2_PORT # (CS2 server listen port tcp_udp)
-      CS2_LAN: 1 # (0 - LAN mode disabled, 1 - LAN Mode enabled)
-      CS2_RCONPW: "@Pass123" # (RCON password)
-      CS2_PW: "@Pass123" # (CS2 server password)
-
-      # Game modes
-      CS2_GAMEALIAS: "casual" # (Game type, e.g. casual, competitive, deathmatch. See https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers)
-      CS2_MAPGROUP: "mg_active" # (Map pool)
-      CS2_STARTMAP: "de_dust2_fps" # (Start map)
-
-      # Bots
-      CS2_BOT_DIFFICULTY: 0 # (0 - easy, 1 - normal, 2 - hard, 3 - expert)
-      CS2_BOT_QUOTA: 0 # (Number of bots)
-      CS2_BOT_QUOTA_MODE: "" # (fill, competitive)
-
-      # TV
-      TV_AUTORECORD: 0 # Automatically records all games as CSTV demos: 0=off, 1=on.
-      TV_ENABLE: 0 # Activates CSTV on server: 0=off, 1=on.
-      TV_PORT: 27020 # Host SourceTV port
-      TV_PW: "@Pass123" # CSTV password for clients
-      TV_RELAY_PW: "@Pass123" # CSTV password for relay proxies
-      TV_MAXRATE: 0 # World snapshots to broadcast per second. Affects camera tickrate.
-      TV_DELAY: 0 # CSTV broadcast delay in seconds
-
-      # Logs
-      CS2_LOG: "on" # 'on'/'off'
-      CS2_LOG_MONEY: 0 # Turns money logging on/off: (0=off, 1=on)
-      CS2_LOG_DETAIL: 0 # Combat damage logging: (0=disabled, 1=enemy, 2=friendly, 3=all)
-      CS2_LOG_ITEMS: 0 # Turns item logging on/off: (0=off, 1=on)
-
-      # Steam Workshop
-      # 3369117065 = de_dust2_fps https://steamcommunity.com/sharedfiles/filedetails/?id=3369117065
-      # 2657171534 = https://steamcommunity.com/sharedfiles/filedetails/?id=2657171534
-
-      CS2_HOST_WORKSHOP_MAP: "3369117065" #(Steam Workshop Map ID to load on server start)   
-      CS2_HOST_WORKSHOP_COLLECTION: "2657171534" # (Steam Workshop Collection ID to download)
+      SRCDS_TOKEN: $SRCDS_TOKEN
+      CS2_SERVERNAME: $CS2_SERVERNAME
+      CS2_CHEATS: $CS2_CHEATS
+      CS2_SERVER_HIBERNATE: $CS2_SERVER_HIBERNATE
+      STEAMAPPVALIDATE: $STEAMAPPVALIDATE
+      CS2_MAXPLAYERS: $CS2_MAXPLAYERS
+      CS2_IP: $CS2_IP
+      CS2_PORT: $CS2_PORT
+      CS2_LAN: $CS2_LAN
+      CS2_RCONPW: $CS2_RCONPW
+      CS2_PW: $CS2_PW
+      CS2_GAMEALIAS: $CS2_GAMEALIAS
+      CS2_MAPGROUP: $CS2_MAPGROUP
+      CS2_STARTMAP: $CS2_STARTMAP
+      CS2_BOT_DIFFICULTY: $CS2_BOT_DIFFICULTY
+      CS2_BOT_QUOTA: $CS2_BOT_QUOTA
+      CS2_BOT_QUOTA_MODE: $CS2_BOT_QUOTA_MODE
+      TV_AUTORECORD: $TV_AUTORECORD
+      TV_ENABLE: $TV_ENABLE
+      TV_PORT: $TV_PORT
+      TV_PW: $TV_PW
+      TV_RELAY_PW: $TV_RELAY_PW
+      TV_MAXRATE: $TV_MAXRATE
+      TV_DELAY: $TV_DELAY
+      CS2_LOG: $CS2_LOG
+      CS2_LOG_MONEY: $CS2_LOG_MONEY
+      CS2_LOG_DETAIL: $CS2_LOG_DETAIL
+      CS2_LOG_ITEMS: $CS2_LOG_ITEMS
+      CS2_HOST_WORKSHOP_MAP: $CS2_HOST_WORKSHOP_MAP
+      CS2_HOST_WORKSHOP_COLLECTION: $CS2_HOST_WORKSHOP_COLLECTION
+      DEBUG: $DEBUG
 
     volumes:
       - ./data:/home/steam/cs2-dedicated/ # Persistent data volume mount point inside container
